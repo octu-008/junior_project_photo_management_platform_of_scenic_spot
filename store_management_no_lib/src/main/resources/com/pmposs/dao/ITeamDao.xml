@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmposs.dao.ITeamDao">
+    <resultMap id="map_team" type="Team">
+        <id property="team_id" column="team_id"></id>
+        <result property="team_leader" column="team_leader"></result>
+        <result property="team_member" column="team_member"></result>
+        <result property="team_mark" column="team_mark"></result>
+    </resultMap>
+    <!--查询全部-->
+    <select id="findAll" resultMap="map_team">
+     select * from team
+    </select>
+    <!--按照导游账号寻找队伍-->
+    <select id="findTeamByLeaderAccount" resultMap="map_team">
+        select * from team where team_leader=#{team_leader}
+    </select>
+    <!--新增-->
+    <insert id="insertTeam" parameterType="Team">
+        insert into team(team_id,team_leader,team_member,team_mark)
+        value (#{team_id},#{team_leader},#{team_member},#{team_mark})
+    </insert>
+    <!--删除-->
+    <delete id="deleteTeam" parameterType="String">
+        delete from team where team_id=#{team_id}
+    </delete>
+    <!--标记队伍已打印-->
+    <update id="teamUpdatePrinted" parameterType="String">
+      update team set team_mark=1 where team_leader=#{team_leader}
+    </update>
+    <!--更新队伍信息-->
+    <update id="addTeamMember" parameterType="String">
+        update team set team_member=#{arg0} where team_leader=#{arg1}
+    </update>
+</mapper>

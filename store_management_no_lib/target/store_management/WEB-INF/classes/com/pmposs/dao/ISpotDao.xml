@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmposs.dao.ISpotDao">
+<resultMap id="map_spot" type="Spot">
+    <id property="spot_id" column="spot_id"></id>
+    <result property="spot_name" column="spot_name"></result>
+    <result property="spot_state" column="spot_state"></result>
+</resultMap>
+    <!--查询全部-->
+    <select id="findAll" resultMap="map_spot">
+     select * from Spot
+    </select>
+    <!--根据spot_id查询-->
+    <select id="findSpotById" resultMap="map_spot">
+        select * from spot where spot_id=#{spot_id}
+    </select>
+    <!--新增-->
+    <insert id="insertSpot" parameterType="User">
+        insert into spot(spot_id,spot_name,spot_state)
+        value (#{spot_id},#{spot_name},#{spot_state})
+    </insert>
+<!--    &lt;!&ndash;删除&ndash;&gt;
+    <delete id="deleteSpot" parameterType="String">
+        delete from spot where spot_id=#{spot_id}
+    </delete>-->
+    <!--更新-->
+    <update id="updateSpot" parameterType="String">
+      update spot set
+      <choose>
+      <when test="arg0 == 'spot_id'">
+          spot_id=#{arg1}
+      </when>
+      <when test="arg0 == 'spot_name'">
+          spot_name=#{arg1}
+      </when>
+      <otherwise>
+          spot_state=#{arg1}
+      </otherwise>
+      </choose>
+      where spot_id=#{arg2}
+    </update>
+</mapper>

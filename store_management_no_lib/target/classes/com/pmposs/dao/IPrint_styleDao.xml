@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmposs.dao.IPrint_styleDao">
+    <resultMap id="map_print_style" type="Print_style">
+        <id property="style_id" column="style_id"></id>
+        <result property="style_name" column="style_name"></result>
+        <result property="style_state" column="style_state"></result>
+        <result property="style_spot" column="style_spot"></result>
+        <result property="style_cost" column="style_cost"></result>
+    </resultMap>
+    <!--查询全部-->
+    <select id="findAllAtLocalSpot" resultMap="map_print_style" parameterType="String">
+     select * from print_style where style_spot=#{style_spot}
+    </select>
+    <!--新增-->
+    <insert id="insertPrint_style" parameterType="Print_style">
+        insert into print_style(style_id,style_name,style_state,style_spot,style_cost)
+        value (#{style_id},#{style_name},#{style_state},#{style_spot},#{style_cost})
+    </insert>
+    <!--删除-->
+    <delete id="deletePrint_style" parameterType="String">
+        delete from print_style where style_id=#{arg0} and style_spot=#{arg1}
+    </delete>
+    <!--更新-->
+    <update id="updatePrint_style" parameterType="String">
+      update print_style set
+      <choose>
+          <when test="arg0 == 'style_id'">
+              style_id=#{arg1}
+          </when>
+          <when test="arg0 == 'style_name'">
+              style_name=#{arg1}
+          </when>
+          <when test="arg0 == 'style_state'">
+              style_state=#{arg1}
+          </when>
+          <otherwise>
+              style_cost=#{arg1}
+          </otherwise>
+      </choose>
+      where style_id=#{arg2} and style_spot=#{arg3}
+    </update>
+</mapper>

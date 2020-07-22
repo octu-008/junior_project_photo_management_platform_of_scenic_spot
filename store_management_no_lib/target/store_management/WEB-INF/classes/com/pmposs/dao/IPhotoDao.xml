@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmposs.dao.IPhotoDao">
+    <resultMap id="map_photo" type="Photo">
+        <id property="pho_name" column="pho_name"></id>
+        <result property="pho_path" column="pho_path"></result>
+        <result property="pho_date" column="pho_date"></result>
+        <result property="pho_user" column="pho_user"></result>
+        <result property="pho_spot" column="pho_spot"></result>
+        <result property="pho_style" column="pho_style"></result>
+        <result property="pho_store" column="pho_store"></result>
+        <result property="pho_mark" column="pho_mark"></result>
+    </resultMap>
+    <!--查询全部-->
+    <select id="findAll" resultMap="map_photo">
+     select * from photo
+    </select>
+    <!--根据pho_user查询-->
+    <select id="findById" resultMap="map_photo" parameterType="String">
+        select * from photo where pho_user=#{pho_user}
+    </select>
+    <!--根据pho_user查询，仅查询上传至导游的-->
+    <select id="findByIdWithLe" resultMap="map_photo" parameterType="String">
+        select * from photo where pho_user=#{pho_user} and pho_store='le'
+    </select>
+    <!--打印指定照片为纪念券-->
+    <select id="printSouvenirTicketByUser_accounts" parameterType="String">
+        update photo set pho_mark=1 where pho_user=#{pho_user}
+    </select>
+    <!--删除-->
+    <delete id="deletePhoto" parameterType="String">
+        delete from photo where pho_name=#{pho_name}
+    </delete>
+    <!--新增-->
+    <insert id="insertPhoto" parameterType="Photo">
+        insert into photo(pho_name,pho_path,pho_date,pho_user,pho_spot,pho_style,pho_store,pho_mark)
+        value (#{pho_name},#{pho_path},#{pho_date},#{pho_user},#{pho_spot},#{pho_style},#{pho_store},#{pho_mark})
+    </insert>
+
+    <!--更新-->
+  <!--  <update id="updatePhoto" parameterType="String">
+      update admin set pho_style=#{0} where pho_name=#{1}
+    </update>-->
+</mapper>
