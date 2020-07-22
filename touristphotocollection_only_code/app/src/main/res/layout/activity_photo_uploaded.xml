@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".PhotoUploaded">
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="查看图片"
+              android:textSize="30dp"
+              android:textColor="@color/black"
+              android:layout_gravity="center_horizontal"
+              android:paddingTop="20dp"
+    />
+    <TextView
+            android:id="@+id/uploadedShow"
+            android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text=""
+              android:textSize="12dp"
+              android:textColor="@color/black"
+              android:layout_gravity="center_horizontal"
+              android:paddingTop="3dp"
+    />
+    <Button
+            android:id="@+id/returnToMain"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="返回主页"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewUploaded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

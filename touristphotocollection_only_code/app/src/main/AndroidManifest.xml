@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.pmposs.touristphotocollection">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:requestLegacyExternalStorage="true"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true">
+        <activity android:name=".TeamManage">
+            <intent-filter>
+                <action android:name="com.pmposs.toursitphotocollection.TEAMMANAGE_START"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Recharge">
+            <intent-filter>
+                <action android:name="com.pmposs.toursitphotocollection.RECHARGE_START"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".PhotoUploaded">
+            <intent-filter>
+                <action android:name="com.pmposs.toursitphotocollection.PHOTOUPLOAD_START"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".VisitorSelect">
+            <intent-filter>
+                <action android:name="com.pmposs.toursitphotocollection.VISITORSELECT_START"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".VisitorUpload">
+            <intent-filter>
+                <action android:name="com.pmposs.touristphotocollection.VISITORUPLOAD_START"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".LeaderMain">
+            <intent-filter>
+                <action android:name="com.pmposs.touristphotocollection.LEADER_MAIN"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".VisitorMain">
+            <intent-filter>
+                <action android:name="com.pmposs.touristphotocollection.VISITOR_START"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".forgotpassword">
+            <intent-filter>
+                <action android:name="com.pmposs.touristphotocollection.FORGOTP_START"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".register">
+            <intent-filter>
+                <action android:name="com.pmposs.touristphotocollection.REGISTER_START"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="user_type_array">
+        <item>游客</item>
+        <item>导游</item>
+    </string-array>
+</resources>
