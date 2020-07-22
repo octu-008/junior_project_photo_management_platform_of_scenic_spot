@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmposs.dao.ISpotDao">
+<resultMap id="map_spot" type="Spot">
+    <id property="spot_id" column="spot_id"></id>
+    <result property="spot_name" column="spot_name"></result>
+    <result property="spot_state" column="spot_state"></result>
+</resultMap>
+    <!--根据spot_id查询-->
+    <select id="findSpotById" resultMap="map_spot">
+        select * from spot where spot_id=#{spot_id}
+    </select>
+    <!--查询所有景区信息-->
+    <select id="findAllSpot" resultMap="map_spot">
+        select * from spot
+    </select>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmposs.dao.IUserDao">
+    <resultMap id="map_user" type="User">
+        <id property="user_account" column="user_account"></id>
+        <result property="user_pwd" column="user_pwd"></result>
+        <result property="user_type" column="user_type"></result>
+        <result property="user_rest" column="user_rest"></result>
+    </resultMap>
+    <!--根据用户账号查询游客-->
+    <select id="findUserByUser_Account" resultMap="map_user" parameterType="String">
+     select * from user where user_account=#{user_account}
+    </select>
+    <!--更新-->
+    <update id="updateUser" parameterType="String">
+      update user set
+      <choose>
+          <when test="arg0 == 'user_account'">
+          user_account=#{arg1}
+          </when>
+          <when test="arg0 == 'user_pwd'">
+              user_pwd=#{arg1}
+          </when>
+          <when test="arg0 == 'user_type'">
+              user_type=#{arg1}
+          </when>
+          <otherwise>
+              user_rest=#{arg1}
+          </otherwise>
+      </choose>
+      where user_account=#{arg2}
+    </update>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmposs.dao.IPrint_styleDao">
+    <resultMap id="map_print_style" type="Print_style">
+        <id property="style_id" column="style_id"></id>
+        <result property="style_name" column="style_name"></result>
+        <result property="style_state" column="style_state"></result>
+        <result property="style_spot" column="style_spot"></result>
+        <result property="style_cost" column="style_cost"></result>
+    </resultMap>
+    <!--查询全部-->
+    <select id="findAllAtLocalSpot" resultMap="map_print_style" parameterType="String">
+     select * from print_style where style_spot=#{style_spot}
+    </select>
+</mapper>
