@@ -21,3 +21,6 @@
 - 自助打印
 - 查看景区信息
 ### 部分页面和功能展示
+![image](https://github.com/octu-008/junior_project_photo_management_platform_of_scenic_spot/blob/master/screenshot/p1.png)
+![image](https://github.com/octu-008/junior_project_photo_management_platform_of_scenic_spot/blob/master/screenshot/p2.png)
+![image](https://github.com/octu-008/junior_project_photo_management_platform_of_scenic_spot/blob/master/screenshot/p3.png)
